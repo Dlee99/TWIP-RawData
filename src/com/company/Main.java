@@ -20,9 +20,49 @@ public class Main {
                 sc.nextLine();
             }
         }
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i).secret);
+        Scanner sc2 = new Scanner(new File("data.txt"));
+        sc2.nextLine();
+        while(sc2.hasNextLine()){
+            String line = sc2.nextLine();
+            Scanner sc3 = new Scanner(line);
+            Student x = getStudent(sc3.nextInt());
+            sc3.useDelimiter("\\t");
+            double frq1 = 0;
+            double frq2 = 0;
+            while(sc3.hasNext()){
+                int fr = 1;
+                String portion = sc3.next();
+                if(portion.contains("\"")){
+                    portion = portion.replaceAll("[^0123456789.\\s]", "");
+                    Scanner sc4 = new Scanner(portion);
+                    while(sc4.hasNextDouble()){
+                        if(fr == 1) {
+                            frq1 += sc4.nextDouble();
+                        }
+                        else{
+                            frq2 += sc4.nextDouble();
+                        }
+                    }
+                }
+                else if(!portion.isEmpty()){
+
+                    if((portion.replaceAll("[0123456789]", "").isEmpty())){
+                        if(fr == 1){
+                            frq1 -= (Integer.parseInt(portion)) * .25;
+                            fr++;
+                        }
+                        else{
+
+                            frq2 -= (Integer.parseInt(portion)) * .25;
+                            break;
+                        }
+                    }
+                }
+            }
+            x.r1(frq1);
+            x.r2(frq2);
         }
+
 
     }
     public static Student getStudent(int n){
