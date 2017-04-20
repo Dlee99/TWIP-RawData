@@ -25,7 +25,7 @@ public class Main {
         while(sc2.hasNextLine()){
             String line = sc2.nextLine();
             Scanner sc3 = new Scanner(line);
-            Student x = getStudent(sc3.nextInt());
+            int id = sc3.nextInt();
             sc3.useDelimiter("\\t");
             double frq1 = 0;
             double frq2 = 0;
@@ -59,8 +59,20 @@ public class Main {
                     }
                 }
             }
-            x.r1(frq1);
-            x.r2(frq2);
+            int l = 0;
+            int i = 0;
+            while(i < list.size()){
+                if(list.get(i).secret == id){
+                    l = i;
+                }
+                i++;
+            }
+            list.get(l).r1(frq1);
+            list.get(l).r2(frq2);
+        }
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i).frq1);
+            System.out.println(list.get(i).frq2);
         }
 
 
