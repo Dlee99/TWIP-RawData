@@ -1,13 +1,16 @@
 package com.company;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.util.*;
 
 public class Main {
     public static ArrayList<Student> list = new ArrayList<>();
 
     public static void main(String[] args) throws java.io.IOException {
+
         Scanner sc = new Scanner(new File("data.txt"));
+
         sc.nextLine();
         while (sc.hasNextLine()) {
             try {
@@ -29,20 +32,24 @@ public class Main {
             sc3.useDelimiter("\\t");
             double frq1 = 0;
             double frq2 = 0;
+            int fr = 1;
             while (sc3.hasNext()) {
-                int fr = 1;
+
                 String portion = sc3.next();
-                System.out.println(portion);
-                if (portion.matches(".*\\d+.*")) {
+                //System.out.println(portion.replaceAll("[^0123456789\\+]", ""));
+                if (portion.replaceAll("[^0123456789\\+]", "").matches("\\+.*\\d")){
                     portion = RNNTC(portion);
                     portion = portion.replaceAll("[^0123456789.\\s]", "");
-                    System.out.println(portion);
+                    //System.out.println(portion);
                     Scanner sc4 = new Scanner(portion);
                     while (sc4.hasNextDouble()) {
-                        if (fr == 1) {
-                            frq1 += sc4.nextDouble();
-                        } else {
-                            frq2 += sc4.nextDouble();
+                        double number = sc4.nextDouble();
+                        if(number != 3) {
+                            if (fr == 1) {
+                                frq1 += number;
+                            } else {
+                                frq2 += number;
+                            }
                         }
                     }
                 } else if (!portion.isEmpty()) {
@@ -72,10 +79,14 @@ public class Main {
             x.r2(frq2);
             list.set(l, x);
         }
-        /*for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i).frq1);
-            System.out.println(list.get(i).frq2);
-        }*/
+        setNames();
+       for (int i = 0; i < list.size(); i++) {
+           System.out.println("Student: `" + list.get(i).name);
+           System.out.println("Average FR 1: " + list.get(i).frq1);
+           System.out.println("Average FR 2: " + list.get(i).frq2);
+           System.out.println("Total Average: " + (list.get(i).frq1 + list.get(i).frq2) + "/19");
+           System.out.println();
+       }
 
 
     }
@@ -94,6 +105,7 @@ public class Main {
     public static void setNames() throws java.io.IOException {
         Scanner sc = new Scanner(new File("names.txt"));
         while (sc.hasNextLine()) {
+
             int num = sc.nextInt();
             getStudent(num).setName(sc.next());
         }
