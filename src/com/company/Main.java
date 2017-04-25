@@ -81,7 +81,7 @@ public class Main {
         }
         setNames();
        for (int i = 0; i < list.size(); i++) {
-           System.out.println("Student: `" + list.get(i).name);
+           System.out.println("Student: " + list.get(i).name);
            System.out.println("Average FR 1: " + list.get(i).frq1);
            System.out.println("Average FR 2: " + list.get(i).frq2);
            System.out.println("Total Average: " + (list.get(i).frq1 + list.get(i).frq2) + "/19");
