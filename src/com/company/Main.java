@@ -1,5 +1,7 @@
 package com.company;
 
+import javafx.scene.control.cell.TextFieldTableCell;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.util.*;
@@ -80,13 +82,25 @@ public class Main {
             list.set(l, x);
         }
         setNames();
-       for (int i = 0; i < list.size(); i++) {
+
+        for (int i = 0; i < list.size(); i++) {
+            System.out.format("%15s%7s%7s%14s", "Student", "FR #1", "FR #2", "Total");
+            String name = list.get(i).name;
+            String frq1 = "" + list.get(i).frq1;
+            String frq2 = "" + list.get(i).frq2;
+            String total = "" + (list.get(i).frq1 + list.get(i).frq2);
+            System.out.println();
+            System.out.format("%15s%7s%7s%14s", name, frq1, frq2, total);
+           /*
            System.out.println("Student: " + list.get(i).name);
+
            System.out.println("Average FR 1: " + list.get(i).frq1);
            System.out.println("Average FR 2: " + list.get(i).frq2);
            System.out.println("Total Average: " + (list.get(i).frq1 + list.get(i).frq2) + "/19");
-           System.out.println();
-       }
+           */
+            System.out.println();
+            System.out.println();
+        }
 
 
     }
