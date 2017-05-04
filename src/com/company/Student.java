@@ -1,5 +1,4 @@
 package com.company;
-
 public class Student {
     public final int secret;
     public Student(int n){
@@ -8,16 +7,14 @@ public class Student {
     public double frq1 = -1;
     public double frq2 = -1;
     public void r1(double n){
-        if(frq1 != -1){
+        if(frq1 != -1)
             frq1 = (frq1 + n) / 2;
-        }
         else
             frq1 = n;
     }
     public void r2(double n){
-        if(frq2 != -1){
+        if(frq2 != -1)
             frq2 = (frq2 + n) / 2;
-        }
         else
             frq2 = n;
     }
@@ -28,5 +25,4 @@ public class Student {
     public String toString(){
         return name + "\n" + "Question 1:\t" + frq1 + "\n" + "Question 2:\t" + frq2;
     }
-
 }
