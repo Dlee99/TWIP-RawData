@@ -70,14 +70,7 @@ public class Main {
         }
         setNames();
         for (int i = 0; i < list.size(); i++) {
-            System.out.printf("%-15s %-15s %-15s %-15s", "Student " + i, "FR #1", "FR #2", "Total");
-            String name = list.get(i).name;
-            String frq1 = "" + list.get(i).frq1;
-            String frq2 = "" + list.get(i).frq2;
-            String total = "" + (list.get(i).frq1 + list.get(i).frq2);
-            System.out.println();
-            System.out.printf("%-15s %-15s %-15s %-15s", name, frq1, frq2, total);
-            System.out.println();
+            list.get(i).toString();
             System.out.println();
         }
     }
