@@ -1,11 +1,8 @@
 package com.company;
-
 import java.io.File;
 import java.util.*;
-
 public class Main {
     public static ArrayList<Student> list = new ArrayList<>();
-
     public static void main(String[] args) throws java.io.IOException {
         Scanner sc = new Scanner(new File("data.txt"));
         sc.nextLine();
