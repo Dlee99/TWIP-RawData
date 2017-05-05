@@ -67,7 +67,7 @@ public class Main {
         }
         setNames();
         for (int i = 0; i < list.size(); i++) {
-            list.get(i).toString();
+            list.get(i).printInfo();
             System.out.println();
         }
     }
@@ -83,8 +83,9 @@ public class Main {
     public static void setNames() throws java.io.IOException {
         Scanner sc = new Scanner(new File("names.txt"));
         while (sc.hasNextLine()) {
-            int num = sc.nextInt();
-            getStudent(num).setName(sc.nextLine().substring(1));
+            String name = sc.next();
+            getStudent(sc.nextInt()).setName(name);
+            sc.nextLine();
         }
     }
     public static String RNNTC(String s) {

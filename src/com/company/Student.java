@@ -22,10 +22,9 @@ public class Student {
     public void setName(String n){
         name = n;
     }
-    public String toString(){
-        System.out.printf("%-15s %-15s %-15s %-15s", "Student " + i, "FR #1", "FR #2", "Total");
+    public void printInfo(){
+        System.out.printf("%-15s %-15s %-15s %-15s", "Student " + secret, "FR #1", "FR #2", "Total");
             System.out.println();
             System.out.printf("%-15s %-15s %-15s %-15s", name, frq1, frq2, frq1 + frq2);
-        return "";
     }
 }
