@@ -53,19 +53,10 @@ public class Main {
                     }
                 }
             }
-            int l = 0;
-            int i = 0;
-            while (i < list.size()) {
-                if (list.get(i).secret == id)
-                    l = i;
-                i++;
-            }
-            Student x = list.get(l);
-            x.r1(frq1);
-            x.r2(frq2);
-            list.set(l, x);
+            list.get(id - 1).r1(frq1);
+            list.get(id - 1).r2(frq2);
         }
-        setNames();
+        //setNames();
         for (int i = 0; i < list.size(); i++) {
             list.get(i).printInfo();
             System.out.println();
