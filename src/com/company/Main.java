@@ -17,11 +17,9 @@ public class Main {
         while (sc2.hasNextLine()) {
             String line = sc2.nextLine();
             Scanner sc3 = new Scanner(line);
-            int id = sc3.nextInt();
+            int id = sc3.nextInt(), fr = 1;
             sc3.useDelimiter("\\t");
-            double frq1 = 0;
-            double frq2 = 0;
-            int fr = 1;
+            double frq1 = 0, frq2 = 0;
             while (sc3.hasNext()) {
                 String portion = sc3.next();
                 if (portion.replaceAll("[^0123456789\\+]", "").matches("\\+.*\\d")) {
