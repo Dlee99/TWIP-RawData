@@ -56,7 +56,7 @@ public class Main {
             list.get(id - 1).r1(frq1);
             list.get(id - 1).r2(frq2);
         }
-        //setNames();
+        /////////setNames();
         for (int i = 0; i < list.size(); i++) {
             list.get(i).printInfo();
             System.out.println();
